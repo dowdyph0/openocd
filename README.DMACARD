@@ -1,0 +1,5 @@
+./configure --enable-ch347
+make
+make install
+
+sudo openocd -f target/ch347.cfg -c "transport select jtag" -f cpld/xilinx-xc7.cfg -c "init;scan_chain"
