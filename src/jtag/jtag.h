@@ -34,7 +34,8 @@
  * Fix those drivers to map as appropriate ... then pick some
  * sane set of numbers here (where 0/uninitialized == INVALID).
  */
-enum tap_state {
+
+ typedef enum tap_state {
 	TAP_INVALID = -1,
 
 	/* Proper ARM recommended numbers */
@@ -54,7 +55,7 @@ enum tap_state {
 	TAP_IRUPDATE = 0xd,
 	TAP_IRCAPTURE = 0xe,
 	TAP_RESET = 0x0f,
-};
+} tap_state_t;
 
 /**
  * Defines arguments for reset functions

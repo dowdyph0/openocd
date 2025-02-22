@@ -28,6 +28,10 @@ DRIVERFILES += %D%/libusb_helper.c
 %C%_libocdjtagdrivers_la_LIBADD += $(LIBUSB1_LIBS)
 endif
 
+if CH347
+DRIVERFILES += %D%/ch347.c
+endif
+
 if USE_LIBFTDI
 %C%_libocdjtagdrivers_la_CPPFLAGS += $(LIBFTDI_CFLAGS)
 %C%_libocdjtagdrivers_la_LIBADD += $(LIBFTDI_LIBS)

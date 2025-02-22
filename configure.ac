@@ -128,6 +128,7 @@ m4_define([ADAPTER_OPT], [m4_translit(ADAPTER_ARG($1), [_], [-])])
 
 m4_define([USB1_ADAPTERS],
 	[[[ftdi], [MPSSE mode of FTDI based devices], [FTDI]],
+  [[ch347], [Mode 3 of the CH347 devices], [CH347]],
 	[[stlink], [ST-Link Programmer], [HLADAPTER_STLINK]],
 	[[ti_icdi], [TI ICDI JTAG Programmer], [HLADAPTER_ICDI]],
 	[[ulink], [Keil ULINK JTAG Programmer], [ULINK]],
@@ -194,6 +195,10 @@ AC_SUBST([doxygen_as_html])
 AC_MSG_CHECKING([whether to build Doxygen as HTML])
 AC_MSG_RESULT([$doxygen_as_html])
 
+AC_ARG_ENABLE([ch347],
+  AS_HELP_STRING([--enable-ch347], [Enable building support for CH347]),
+  [build_ch347=$enableval], [build_ch347=no])
+
 AC_ARG_ENABLE([doxygen-pdf],
   AS_HELP_STRING([--enable-doxygen-pdf],
     [Enable building Doxygen manual as PDF.]),
@@ -248,6 +253,12 @@ AC_ARG_ENABLE([verbose_usb_comms],
   AS_HELP_STRING([--enable-verbose-usb-comms],
       [Enable verbose USB communication messages (for debugging)]),
   [debug_usb_comms=$enableval], [])
+
+AS_IF([test "x$build_ch347" = "xyes"], [
+  AC_DEFINE([BUILD_CH347], [1], [1 if you want CH347.])
+], [
+  AC_DEFINE([BUILD_CH347], [0], [0 if you don't want CH347.])
+])
 
 AC_MSG_CHECKING([whether to enable verbose USB I/O messages]);
 AC_MSG_RESULT([$debug_usb_io])
@@ -770,6 +781,7 @@ AS_IF([test "x$enable_esp_usb_jtag" != "xno"], [
   build_bitq=yes
 ])
 
+AM_CONDITIONAL([CH347], [test "x$build_ch347" = "xyes"])
 AM_CONDITIONAL([RELEASE], [test "x$build_release" = "xyes"])
 AM_CONDITIONAL([PARPORT], [test "x$build_parport" = "xyes"])
 AM_CONDITIONAL([GIVEIO], [test "x$parport_use_giveio" = "xyes"])

@@ -35,7 +35,17 @@
  * The list of built-in JTAG interfaces, containing entries for those
  * drivers that were enabled by the @c configure script.
  */
+
+ #if BUILD_CH347 == 1
+ extern struct adapter_driver ch347_adapter_driver;
+ #endif
+
 struct adapter_driver *adapter_drivers[] = {
+
+#if BUILD_CH347 == 1
+    	&ch347_adapter_driver,
+#endif
+
 #if BUILD_PARPORT == 1
 		&parport_adapter_driver,
 #endif
