@@ -1,4 +1,5 @@
 # HOWTO BUILD WITH CH347 SUPPORT
+
 Maybe you have to add extra dependencies, take a look to the other README files
 
 ```
@@ -9,6 +10,7 @@ sudo openocd -f target/ch347.cfg -c "transport select jtag" -f cpld/xilinx-xc7.c
 ```
 
 # ENABLE USB-SPI BRIDGE
+
 To flash or interact with dma card internal's SPI memory you have to enable it
 
 Take a look to `custom_cfgs` folder
@@ -17,6 +19,12 @@ Please dont forget you need the `bitstreams/bscan_spi_xc7a75t.bit` file
 > sudo openocd -f custom_cfgs/enable-spi-bridge.cfg
 
 # TO DOWNLOAD CURRENT SPI FIRMWARE TO A FILE
+
 The output file will be `firmware_dump.bin`
 
 > sudo openocd -f custom_cfgs/download-firmware.cfg
+
+# TO UPLOAD NEW FIRMWAREhttps://github.com/dowdyph0/openocd/blob/ch347/tcl/cpld/jtagspi.cfg
+
+- First you have to enable the USB-SPI bridge
+- Check the `tcl/cpld/jtagspi.cfg` file for the `jtagspi_program` command
