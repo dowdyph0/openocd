@@ -21,6 +21,7 @@ Please dont forget you need the `bitstreams/bscan_spi_xc7a75t.bit` file
 > sudo openocd -f custom_cfgs/enable-spi-bridge.cfg
 
 # TO DOWNLOAD CURRENT SPI FIRMWARE TO A FILE
+This is **EXPERIMENTAL** not confirmed still, it downloads the .bin file, binwalk seems to see a proper firmware but I have not tried to reupload it to he DMA card
 
 The output file will be `firmware_dump.bin`
 
