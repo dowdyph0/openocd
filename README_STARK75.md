@@ -24,7 +24,7 @@ The output file will be `firmware_dump.bin`
 
 > sudo openocd -f custom_cfgs/download-firmware.cfg
 
-# TO UPLOAD NEW FIRMWAREhttps://github.com/dowdyph0/openocd/blob/ch347/tcl/cpld/jtagspi.cfg
+# TO UPLOAD NEW FIRMWARE
 
 - First you have to enable the USB-SPI bridge
 - Check the `tcl/cpld/jtagspi.cfg` file for the `jtagspi_program` command
