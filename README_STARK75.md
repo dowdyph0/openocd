@@ -1,10 +1,9 @@
 # HOWTO BUILD WITH CH347 SUPPORT
 ## MAYBE YOU HAVE TO ADD EXTRA DEPENDENCIES TAKE A LOOK TO THE OTHER README FILES
 
-./configure --enable-ch347
-make
-make install
-
+> ./configure --enable-ch347
+> make
+> make install
 > sudo openocd -f target/ch347.cfg -c "transport select jtag" -f cpld/xilinx-xc7.cfg -c "init;scan_chain"
 
 # ENABLE USB-SPI BRIDGE
