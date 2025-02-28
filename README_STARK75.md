@@ -3,6 +3,8 @@
 Maybe you have to add extra dependencies, take a look to the other README files
 
 ```
+git clone https://github.com/dowdyph0/openocd
+cd openocd
 ./configure --enable-ch347
 make
 make install
